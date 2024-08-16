@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Sticky Header and Footer Table
+        link(rel='stylesheet' href='/public/css/home.css')
+        link(rel='stylesheet' href='/public/css/slider.css')
+        link(rel='stylesheet' href='/public/css/fontello.css')
+        link(rel='stylesheet' href='/public/css/animation.css')
+        script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    body
+        #main
+            .toggle-container
+                #warcaby.toggle-element.view
+                    .table-container#warcaby-table-container
+                        table#serversTableWarcaby
+                            thead.sticky-header#warcabyHeader
+                                tr
+                                    th
+                                        span Servers
+                                    th
+                                        span Status
+                                    th
+                                        span Player 1
+                                    th
+                                        span Player 2
+                            tbody#warcabyTbody
+                            tfoot.sticky-footer#warcabyFoot
+                                tr
+                                    td.footer(style="width: 100%;", colspan='4')
+                                        .name_Server
+                                            input#yourNameWarcaby(type='text' placeholder='Enter your name')
+                                            button#createServerWarcaby.button(role='button') Create Server
+                                        .find
+                                            button#find_playersWarcaby.button(role='button') Find Players
+                                            input#playersNameWarcaby(type='text' placeholder='Clear to find any player')
+                #poker.toggle-element
+                    .table-container#poker-table-container
+                        table#serversTablePoker
+                            thead.sticky-header#pokerHeader
+                                tr
+                                    th
+                                        span Servers
+                                    th
+                                        span Status
+                                    th
+                                        span Player 1
+                                    th
+                                        span Player 2
+                                    th
+                                        span Player 3
+                                    th
+                                        span Player 4
+                            tbody#pokerTbody
+                            tfoot.sticky-footer#pokerFoot
+                                tr
+                                    td.footer(style="width: 100%;", colspan='6')
+                                        .name_Server
+                                            input#yourNamePoker(type='text' placeholder='Enter your name')
+                                            button#createServerPoker.button(role='button') Create Server
+                                        .find
+                                            button#find_playersPoker.button(role='button') Find Players
+                                            input#playersNamePoker(type='text' placeholder='Clear to find any player')
+            .wrapper
+                a.arrow__btn.left-arrow(href='#section1')
+                    i.icon-up-open
+                a.arrow__btn.right-arrow(href='#section1')
+                    i.icon-down-open
+                #content
+                    section#section1
+                        .item
+                            a(href='#')
+                                img(src='https://cdn.glitch.global/fff0ab6e-ad98-4f3d-b97f-dbb6110b1226/warcaby%20logo2.jpg?v=1721484526666' alt='Describe Image')
+                                h1.heading Heading One
+                                p.duration Duration: 10 min
+                    section#section2
+                        .item
+                            img(src='https://cdn.glitch.global/fff0ab6e-ad98-4f3d-b97f-dbb6110b1226/poker%20cover3.jpg?v=1721485259569' alt='Describe Image')
+                            h1.heading Heading One
+                            p.duration Duration: 10 min
+        script(src='/socket.io/socket.io.js')
+        script(src='public/home.js')
+        script(src='public/poker.js')
+        script(src='public/slider.js')

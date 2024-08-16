@@ -1,0 +1,27 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Card Layout
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js')
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    script.
+        if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                // Redirect to the home page if the page was reloaded
+                window.location.href = '/';
+            } else {
+                // Store a flag in sessionStorage to indicate a valid visit
+                sessionStorage.setItem('warcabyAccess', 'true');
+            }
+    link(rel='stylesheet' href='/public/css/poker.css')
+.container
+    #buttonContainer 
+        #chip WAIT FOR PLAYERS
+    #table
+        .players
+        // Player hands will be generated here
+    #info-conainer
+        #info
+            #players
+            button#start(onclick='startGame()' style='z-index: 0;') START
+script(src='/public/pokergame.js')

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .animated-border-image {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg, red, blue);
+  animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    border-image-source: linear-gradient(45deg, red, blue);
+  }
+  100% {
+    border-image-source: linear-gradient(405deg, red, blue);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="animated-border-image">Animated Border Image</div>
+
+</body>
+</html>

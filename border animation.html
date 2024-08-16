@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .animated-pseudo-border {
+  position: relative;
+  padding: 20px;
+  border: 2px solid transparent;
+  background: white;
+  z-index: 1;
+}
+
+.animated-pseudo-border::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, red, blue);
+  z-index: -1;
+  animation: animateBorder 5s linear infinite;
+}
+
+@keyframes animateBorder {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="animated-pseudo-border">Animated Border with Pseudo-element</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes borderColorChange {
+  0% {
+    border-color: red;
+  }
+  25% {
+    border-color: blue;
+  }
+  50% {
+    border-color: green;
+  }
+  75% {
+    border-color: yellow;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+.animated-border {
+  border: 5px solid red;
+  animation: borderColorChange 5s infinite;
+}
+
+    </style>
+</head>
+<body>
+    <div class="animated-border">Animated Border Color</div>
+
+</body>
+</html>
