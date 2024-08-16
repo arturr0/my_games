@@ -1,0 +1,227 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card-img {
+  width: 6vw; /* Set a default width for card images */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure the image takes full width */
+  border-radius: 5px;
+}
+
+.container {
+  height: 100%;
+  z-index: 0;
+}
+
+.names {
+  visibility: hidden;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-row {
+  display: flex;
+  padding: 0;
+}
+
+#player-4 {
+  display: flex;
+  justify-content: center;
+}
+
+#player-1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: auto;
+}
+
+#middle-row {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#middle-row .player {
+  margin: 0 50px;
+}
+
+.card-container {
+  display: inline-block;
+  perspective: 1000px;
+  cursor: pointer;
+  visibility: hidden;
+  margin-right: 3px;
+}
+
+.back-and-front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  background-color: transparent;
+  transform: rotateY(0deg);
+}
+
+.front {
+  background-color: transparent;
+  transform: rotateY(180deg);
+}
+
+.player-row.flipped .card-container .back-and-front {
+  transform: rotateY(180deg);
+}
+
+#table {
+  width: 70vw;
+  height: 95%; 
+  border-radius: 50% / 50%;
+  background-image: url('images/table.jpg');
+  background-size: cover;
+  border: 5px solid black;
+  z-index: 1;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back {
+  border-radius: 5px;
+}
+#info-conainer {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(0,212,255,1) 54%, rgba(5,255,0,1) 74%, rgba(9,105,121,1) 100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+#info {
+  width: 25vw;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: 5px solid black;
+  background: transparent;
+}
+#buttonContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: transparent;
+}
+#chip {
+  margin: 0;
+  width: 200px;
+  height: 200px; /* Height is different from width */
+  border-radius: 50%;
+  position: relative;
+  background-image: url('images/chip.png');
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers text vertically */
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+#chip::after, #chip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  translate: -50% -50%;
+  background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+  z-index: -1;
+  padding: 3px;
+  border-radius: 50%;
+  animation: 3s spin linear infinite;
+}
+#chip::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin {
+  from {
+      --angle: 0deg;
+  }
+  to {
+      --angle: 360deg;
+  }
+}
+.player.bottom {
+  /* Position at the bottom of the container */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.player.top {
+  /* Position at the top of the container */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.player.middle-left {
+  /* Position at the middle-left */
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
+}
+
+.player.middle-right {
+  /* Position at the middle-right */
+  position: absolute;
+  bottom: 50%;
+  right: 10%;
+}
